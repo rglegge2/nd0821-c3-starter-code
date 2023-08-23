@@ -32,7 +32,7 @@ def test_run_inference_success_0():
     data = json.dumps(input_data)
     r = client.post("/inference", data=data)
     assert r.status_code == 200
-    assert r.json()['Prediction'] == "<=50k"
+    assert r.json()['Prediction'] == "<=50K"
 
 
 def test_run_inference_success_1():
