@@ -21,8 +21,39 @@ cat_features = [
     "native_country",
 ]
 
-
+# NOTE: Commenting this out and using default hyperparameters to reduce model size.
 # Optional: implement hyperparameter tuning.
+# def train_model(X_train, y_train):
+#     """
+#     Trains a machine learning model and returns it.
+#
+#     Inputs
+#     ------
+#     X_train : np.array
+#         Training data.
+#     y_train : np.array
+#         Labels.
+#     Returns
+#     -------
+#     model
+#         Trained machine learning model.
+#     """
+#     logger.info("Training RandomForestClassifier")
+#     rfc = RandomForestClassifier()
+#     # Set up GridSearch for hyperparameter optimization
+#     param_grid = {
+#         'n_estimators': [100, 200, 500],
+#         'max_depth': [10, 50, 100],
+#         'criterion': ['gini', 'entropy']
+#     }
+#     cv_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, scoring='f1', cv=5, verbose=10)
+#     cv_rfc.fit(X_train, y_train)
+#     best_params = cv_rfc.best_params_
+#     logger.info("Training complete!")
+#     logger.info(f"Best Params: {best_params}")
+#     return cv_rfc
+
+
 def train_model(X_train, y_train):
     """
     Trains a machine learning model and returns it.
@@ -39,19 +70,10 @@ def train_model(X_train, y_train):
         Trained machine learning model.
     """
     logger.info("Training RandomForestClassifier")
-    rfc = RandomForestClassifier()
-    # Set up GridSearch for hyperparameter optimization
-    param_grid = {
-        'n_estimators': [100, 200, 500],
-        'max_depth': [10, 50, 100],
-        'criterion': ['gini', 'entropy']
-    }
-    cv_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, scoring='f1', cv=5, verbose=10)
-    cv_rfc.fit(X_train, y_train)
-    best_params = cv_rfc.best_params_
+    rfc = RandomForestClassifier(verbose=10)
+    rfc.fit(X_train, y_train)
     logger.info("Training complete!")
-    logger.info(f"Best Params: {best_params}")
-    return cv_rfc
+    return rfc
 
 
 def compute_model_metrics(y, preds):

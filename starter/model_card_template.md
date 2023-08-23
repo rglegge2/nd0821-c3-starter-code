@@ -4,10 +4,7 @@ For additional information see the Model Card paper: https://arxiv.org/pdf/1810.
 
 ## Model Details
 * Robert Legge created this model.
-* The model is a RandomForestClassifier with hyperparameters selected with GridSearchCV. Optimized hyperparameters are as follows:
-  * criterion: entropy
-  * max_depth: 50
-  * n_estimators: 200
+* The model is a RandomForestClassifier with hyperparameters selected with default hyperparameters.
 * The version of scikit-learn used is 1.3.0.
 
 ## Intended Use
@@ -26,14 +23,14 @@ For additional information see the Model Card paper: https://arxiv.org/pdf/1810.
 ## Metrics
 * The model was evaluated using Precision, Recall, and F1-Score.
 * Performance metrics are as follows:
-    * Precision: 0.74545 
-    * Recall: 0.62755 
-    * F1-Score: 0.68144
-    * Confusion Matrix: [[4609  336] [ 584  984]]
+    * Precision: 0.72796 
+    * Recall: 0.61097 
+    * F1-Score: 0.66436
+    * Confusion Matrix: [[4587  358] [ 610  958]]
 * For performance metrics on each of the features, please see [slice_output.txt](starter/slice_output.txt).
 
 ## Ethical Considerations
-* The population sample for this dataset is not an accurate representation of the overall population, and therefore would not produce accurate results outside of the scope of this dataset.
+* The population sample for this dataset is not an accurate representation of the overall population, and therefore would not produce accurate results outside the scope of this dataset.
 * This can be seen when looking at the lack of balance in certain features such as `sex`, where the sample size of males is twice that of females.
 * Included factors such as `race` and `native_country` also introduce bias when we see that the number of individuals whose race is White make up ~85% of the sample population and those whose native country is the United States make up ~90%.
 
