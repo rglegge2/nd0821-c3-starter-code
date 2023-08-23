@@ -5,10 +5,10 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from starter.starter.ml import model
-from starter.starter.ml.data import process_data
-from starter.starter.ml.model import compute_model_metrics, model_slice_performance
-from starter.starter.train_model import cat_features
+from starter.ml import model
+from starter.ml.data import process_data
+from starter.ml.model import compute_model_metrics, model_slice_performance
+from starter.train_model import cat_features
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
@@ -16,17 +16,17 @@ logger = logging.getLogger()
 
 @pytest.fixture(scope="module")
 def clf():
-    return pickle.load(open("starter/model/trained_model.pkl", 'rb'))
+    return pickle.load(open("model/trained_model.pkl", 'rb'))
 
 
 @pytest.fixture(scope="module")
 def encoder():
-    return pickle.load(open("starter/model/trained_encoder.pkl", 'rb'))
+    return pickle.load(open("model/trained_encoder.pkl", 'rb'))
 
 
 @pytest.fixture(scope="module")
 def lb():
-    return pickle.load(open("starter/model/trained_lb.pkl", 'rb'))
+    return pickle.load(open("model/trained_lb.pkl", 'rb'))
 
 
 @pytest.fixture(scope="module")
@@ -66,7 +66,7 @@ def y_test():
 
 @pytest.fixture(scope="module")
 def df():
-    return pd.read_csv("starter/data/census.csv")
+    return pd.read_csv("data/census.csv")
 
 
 def test_inference(clf, X):

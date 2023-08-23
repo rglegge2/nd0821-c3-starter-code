@@ -5,9 +5,9 @@ import pandas as pd
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from starter.starter.ml.model import inference
-from starter.starter.ml.data import process_data
-from starter.starter.train_model import cat_features
+from starter.ml.model import inference
+from starter.ml.data import process_data
+from starter.train_model import cat_features
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
@@ -54,9 +54,9 @@ class InputData(BaseModel):
 
 
 app = FastAPI()
-model_path = "starter/model/trained_model.pkl"
-encoder_path = "starter/model/trained_encoder.pkl"
-lb_path = "starter/model/trained_lb.pkl"
+model_path = "model/trained_model.pkl"
+encoder_path = "model/trained_encoder.pkl"
+lb_path = "model/trained_lb.pkl"
 model = pickle.load(open(model_path, "rb"))
 encoder = pickle.load(open(encoder_path, "rb"))
 lb = pickle.load(open(lb_path, "rb"))
