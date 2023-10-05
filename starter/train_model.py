@@ -85,7 +85,7 @@ def main():
     logger.info("Calculating performance metrics...")
     preds = inference(model, X_test)
     precision, recall, fbeta = compute_model_metrics(y_test, preds)
-    logger.info(f"Precision: {precision}\nRecall: {recall}\nF-Score: {fbeta}")
+    logger.info(f"Precision: {precision}\nRecall: {recall}\nF1-Score: {fbeta}")
 
     cm = confusion_matrix(y_test, preds)
     logger.info(f"Confusion Matrix:\n{cm}")

@@ -30,8 +30,8 @@ class InputData(BaseModel):
     hours_per_week: int
     native_country: str
 
-    class Config:
-        schema_extra = {
+    model_config = {
+        "json_schema_extra": {
             "examples": [
                 {
                     'age': 39,
@@ -51,6 +51,7 @@ class InputData(BaseModel):
                 }
             ]
         }
+    }
 
 
 app = FastAPI()
