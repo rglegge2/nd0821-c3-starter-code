@@ -1,5 +1,6 @@
 import logging
 import pickle
+from typing import Any
 
 import pandas as pd
 from fastapi import FastAPI, Body
@@ -47,7 +48,7 @@ async def hello_world():
 
 
 @app.post("/inference")
-async def run_inference(input_data: Annotated[InputData, Body(examples=[{
+async def run_inference(input_data: Annotated[InputData, Body(default=None, examples=[{
                     'age': 39,
                     'workclass': 'State-gov',
                     'fnlgt': 77516,
