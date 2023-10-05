@@ -35,6 +35,6 @@ For additional information see the Model Card paper: https://arxiv.org/pdf/1810.
 * Included factors such as `race` and `native_country` also introduce bias when we see that the number of individuals whose race is White make up ~85% of the sample population and those whose native country is the United States make up ~90%.
 
 ## Caveats and Recommendations
-* For a true analysis of salary within the United States, consider a more balanced dataset that includes moer equal representation across all features included within this dataset
+* For a true analysis of salary within the United States, consider a more balanced dataset that includes more equal representation across all features included within this dataset
 * It is also worth noting that the data itself is from the 1994 Census database, and therefore is not representative of the current population. The most recent Census would be a better option.
 * It may also be worth expanding the salary ranges from just <=50K or >50K to include additional labels to identify different levels of wealth within the country.
